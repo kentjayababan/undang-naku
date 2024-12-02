@@ -1,5 +1,6 @@
 package ababanmovieapp;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -8,7 +9,10 @@ public class Customer {
     public void cTransaction(){
         
         Scanner sc = new Scanner (System.in);
-        String response;
+        String response = "yes";
+        int action = -1;  
+        Customer cs = new Customer ();
+        
         do{
             
        
@@ -20,8 +24,20 @@ public class Customer {
         System.out.println("5. EXIT ");
         
         System.out.println("Enter Action: ");
-        int action = sc.nextInt();
-        Customer cs = new Customer ();
+         try {
+                action = sc.nextInt(); 
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid action, Please enter a numeric action.");
+                sc.nextLine();
+                continue; 
+            }
+
+            if (action < 1 || action > 5) {
+                System.out.println("Invalid action, Please enter a number between 1 to 5.");
+                continue; 
+            }
+
+        
         
 
         switch(action){
@@ -112,7 +128,7 @@ public class Customer {
         System.out.println("Enter the ID  to delete: ");
         int id = sc.nextInt();
         
-        while(conf.getSingleValue("SELECT c_id FROM tbl_customers WHERE c_id = ?", id) == 0){
+        while(conf.getSingleValue("SELECT c_id FROM tbl_customer WHERE c_id = ?", id) == 0){
         System.out.println("Selected ID doesn't exist!");
         System.out.print("Select Customer ID Again: ");
         id = sc.nextInt();

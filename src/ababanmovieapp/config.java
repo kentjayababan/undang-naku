@@ -93,7 +93,52 @@ public class config {
         } catch (SQLException e) {
             System.out.println("Error retrieving records: " + e.getMessage());
         }
-    } 
+    }
+    public void viewRecordById(String sqlQuery, int reportId, String[] columnHeaders, String[] columnNames) {
+    // Check that columnHeaders and columnNames arrays are the same length
+    if (columnHeaders.length != columnNames.length) {
+        System.out.println("Error: Mismatch between column headers and column names.");
+        return;
+    }
+
+    try (Connection conn = this.connectDB();
+         PreparedStatement pstmt = conn.prepareStatement(sqlQuery)) {
+
+        // Set the reportId to the prepared statement
+        pstmt.setInt(1, reportId);
+
+        // Execute the query and get the result set
+        ResultSet rs = pstmt.executeQuery();
+
+        // Print the headers dynamically
+        StringBuilder headerLine = new StringBuilder();
+        headerLine.append("--------------------------------------------------------------------------------\n| ");
+        for (String header : columnHeaders) {
+            headerLine.append(String.format("%-20s | ", header)); // Adjust formatting as needed
+        }
+        headerLine.append("\n--------------------------------------------------------------------------------");
+
+        System.out.println(headerLine.toString());
+
+        // Print the row dynamically based on the provided column names
+        if (rs.next()) {
+            StringBuilder row = new StringBuilder("| ");
+            for (String colName : columnNames) {
+                String value = rs.getString(colName);
+                row.append(String.format("%-20s | ", value != null ? value : "")); // Adjust formatting
+            }
+            System.out.println(row.toString());
+        } else {
+            System.out.println("No record found with ID " + reportId);
+        }
+
+        System.out.println("--------------------------------------------------------------------------------");
+
+    } catch (SQLException e) {
+        System.out.println("Error retrieving record by ID: " + e.getMessage());
+    }
+}
+
    
 //-----------------------------------------------
     // UPDATE METHOD
