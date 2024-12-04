@@ -16,13 +16,16 @@ public class Customer {
         do{
             
        
-        System.out.println("WELCOME CUSTOMER!");    
+        System.out.println("====================");    
+        System.out.println("WELCOME CUSTOMER!");
+        System.out.println("====================");
         System.out.println("1. ADD CUSTOMER");
         System.out.println("2. VIEW CUSTOMER");
         System.out.println("3. UPDATE CUSTOMER");
         System.out.println("4. DELETE CUSTOMER");
         System.out.println("5. EXIT ");
         
+        System.out.println("---------------");
         System.out.println("Enter Action: ");
          try {
                 action = sc.nextInt(); 

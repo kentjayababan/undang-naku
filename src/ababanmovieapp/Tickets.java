@@ -19,14 +19,16 @@ public class Tickets {
         
         do{
             
-       
-        System.out.println("WELCOME TO TICKET!");    
+        System.out.println("====================");
+        System.out.println("WELCOME TO TICKET!");
+        System.out.println("====================");
         System.out.println("1. ADD TICKET");
         System.out.println("2. VIEW TICKET");
         System.out.println("3. UPDATE TICKET");
         System.out.println("4. DELETE TICKET");
         System.out.println("5. Exit. ");
         
+        System.out.println("---------------");
         System.out.println("Enter Action: ");
         int act = -1; 
 

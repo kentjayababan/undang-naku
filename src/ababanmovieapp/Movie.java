@@ -15,14 +15,16 @@ public class Movie {
         
         do{
             
-       
-        System.out.println("WELCOME TO MOVIE!");    
+        System.out.println("====================");
+        System.out.println("WELCOME TO MOVIE!");
+        System.out.println("====================");
         System.out.println("1. ADD MOVIE");
         System.out.println("2. VIEW MOVIE");
         System.out.println("3. UPDATE MOVIE");
         System.out.println("4. DELETE MOVIE");
         System.out.println("5. EXIT ");
         
+        System.out.println("---------------");
         System.out.println("Enter Action: ");
        int act = -1; 
 

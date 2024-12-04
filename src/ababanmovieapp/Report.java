@@ -12,11 +12,15 @@ public class Report {
         Report rep = new Report ();       
         
         do {
+            
+            System.out.println("============================");
             System.out.println("WELCOME TO REPORTS SECTION!");
+            System.out.println("=============================");
             System.out.println("1. VIEW INDIVIDUAL REPORT");
             System.out.println("2. VIEW ALL REPORTS");
             System.out.println("3. EXIT");
 
+            System.out.println("---------------");
             System.out.println("Enter Action: ");
             try {
                 action = sc.nextInt();

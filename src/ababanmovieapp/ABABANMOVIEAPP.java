@@ -13,15 +13,18 @@ public class ABABANMOVIEAPP {
         Scanner sc = new Scanner(System.in);    
         boolean exit = true;
         do{
+            
+        System.out.println("====================");    
         System.out.println("WELCOME TO MOVIEAPP");
-        System.out.println("");
+        System.out.println("====================");
         System.out.println("1. CUSTOMER");
         System.out.println("2. MOVIE");
         System.out.println("3. TICKETS");
         System.out.println("4. REPORT SECTION");
         System.out.println("5. EXIT");
         
-        System.out.print("Enter Action: ");
+        System.out.println("-----------");
+        System.out.print("Enter Action:");
         int act = -1; 
 
             try {
